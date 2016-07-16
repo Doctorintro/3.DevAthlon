@@ -36,9 +36,13 @@ public class InventoryClickListener implements Listener{
             }
         }else if(isCorrectItem(itemStack) && inv.getTitle().contains("Zunft")){
             if(itemStack.getItemMeta().getDisplayName().contains("§a")){
-                p.setMetadata("openChooser", new FixedMetadataValue(plugin, false));
-                plugin.getKitManager().setKit(p, ChatColor.stripColor(inv.getTitle().split(" ")[2]));
-                p.closeInventory();
+                try {
+                    p.setMetadata("openChooser", new FixedMetadataValue(plugin, false));
+                    plugin.getKitManager().setKit(p, ChatColor.stripColor(inv.getTitle().split(" ")[2]));
+                    p.closeInventory();
+                } catch (CloneNotSupportedException e1) {
+                    e1.printStackTrace();
+                }
             }else if(itemStack.getItemMeta().getDisplayName().contains("§c")){
                 p.closeInventory();
             }
@@ -48,6 +52,6 @@ public class InventoryClickListener implements Listener{
     }
 
     private boolean isCorrectItem(ItemStack itemStack){
-        return itemStack == null || itemStack.getItemMeta() == null || itemStack.getItemMeta().getDisplayName() == null;
+        return itemStack != null && itemStack.getItemMeta() != null && itemStack.getItemMeta().getDisplayName() != null;
     }
 }

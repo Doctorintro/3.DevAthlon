@@ -14,13 +14,11 @@ public abstract class Spell implements ISpell{
     private Player target;
     private long start, duration, refill;
 
-    public Spell(ItemStack spell, String name, long start, long duration, long refill, SpellTask task) {
+    public Spell(ItemStack spell, String name,long duration, long refill) {
         this.spell = spell;
         this.name = name;
-        this.start = start;
         this.duration = duration;
         this.refill = refill;
-        this.task = task;
     }
 
     private SpellTask task;

@@ -49,7 +49,7 @@ public class WizardBrawl extends JavaPlugin{
 
     private void loadManager() {
         locationManager = new LocationManager(this);
-        kitManager = new KitManager();
+        kitManager = new KitManager(this);
         inventoryManager = new InventoryManager(this);
         playerManager = new PlayerManager(this);
     }

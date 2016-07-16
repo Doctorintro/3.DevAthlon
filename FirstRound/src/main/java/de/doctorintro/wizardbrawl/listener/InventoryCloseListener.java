@@ -28,7 +28,7 @@ public class InventoryCloseListener implements Listener{
         Inventory inv = e.getInventory();
         if (inv.getTitle().contains("Zunft")) {
             List<MetadataValue> meta = p.getMetadata("openChooser");
-            if (plugin.getKitManager().getKit(p) == null) {
+            if (plugin.getPlayerManager().getPlayer(p) == null) {
                 if((meta == null || meta.isEmpty())) {
                     Bukkit.getScheduler().runTaskLater(plugin, () -> {
                         p.openInventory(plugin.getInventoryManager().getSelectWizard());
