@@ -1,8 +1,8 @@
-package de.doctorintro.wizardBrawl.manager;
+package de.doctorintro.wizardbrawl.manager;
 
-import de.doctorintro.wizardBrawl.WizardBrawl;
-import de.doctorintro.wizardBrawl.kit.IKit;
-import de.doctorintro.wizardBrawl.utils.ItemFactory;
+import de.doctorintro.wizardbrawl.WizardBrawl;
+import de.doctorintro.wizardbrawl.kit.IKit;
+import de.doctorintro.wizardbrawl.utils.ItemFactory;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.inventory.Inventory;

@@ -1,6 +1,6 @@
-package de.doctorintro.wizardBrawl.manager;
+package de.doctorintro.wizardbrawl.manager;
 
-import de.doctorintro.wizardBrawl.WizardBrawl;
+import de.doctorintro.wizardbrawl.WizardBrawl;
 import org.bukkit.Location;
 
 import java.util.LinkedList;

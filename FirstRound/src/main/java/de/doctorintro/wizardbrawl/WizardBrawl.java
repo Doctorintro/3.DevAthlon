@@ -1,12 +1,12 @@
-package de.doctorintro.wizardBrawl;
+package de.doctorintro.wizardbrawl;
 
-import de.doctorintro.wizardBrawl.listener.InventoryClickListener;
-import de.doctorintro.wizardBrawl.listener.InventoryCloseListener;
-import de.doctorintro.wizardBrawl.listener.ListenerToCancel;
-import de.doctorintro.wizardBrawl.listener.PlayerJoinListener;
-import de.doctorintro.wizardBrawl.manager.InventoryManager;
-import de.doctorintro.wizardBrawl.manager.KitManager;
-import de.doctorintro.wizardBrawl.manager.LocationManager;
+import de.doctorintro.wizardbrawl.listener.InventoryClickListener;
+import de.doctorintro.wizardbrawl.listener.InventoryCloseListener;
+import de.doctorintro.wizardbrawl.listener.ListenerToCancel;
+import de.doctorintro.wizardbrawl.listener.PlayerJoinListener;
+import de.doctorintro.wizardbrawl.manager.InventoryManager;
+import de.doctorintro.wizardbrawl.manager.KitManager;
+import de.doctorintro.wizardbrawl.manager.LocationManager;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;

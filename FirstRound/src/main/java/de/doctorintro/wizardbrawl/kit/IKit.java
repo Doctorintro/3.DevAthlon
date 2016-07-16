@@ -1,4 +1,4 @@
-package de.doctorintro.wizardBrawl.kit;
+package de.doctorintro.wizardbrawl.kit;
 
 
 import org.bukkit.inventory.ItemStack;

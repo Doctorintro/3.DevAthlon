@@ -1,4 +1,4 @@
-package de.doctorintro.wizardBrawl.listener;
+package de.doctorintro.wizardbrawl.listener;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

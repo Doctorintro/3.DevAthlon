@@ -1,4 +1,4 @@
-package de.doctorintro.wizardBrawl.utils;
+package de.doctorintro.wizardbrawl.utils;
 
 import com.google.common.collect.Lists;
 import org.bukkit.Color;

@@ -1,6 +1,6 @@
-package de.doctorintro.wizardBrawl.listener;
+package de.doctorintro.wizardbrawl.listener;
 
-import de.doctorintro.wizardBrawl.WizardBrawl;
+import de.doctorintro.wizardbrawl.WizardBrawl;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

@@ -1,6 +1,6 @@
-package de.doctorintro.wizardBrawl.kit;
+package de.doctorintro.wizardbrawl.kit;
 
-import de.doctorintro.wizardBrawl.utils.ItemFactory;
+import de.doctorintro.wizardbrawl.utils.ItemFactory;
 import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
