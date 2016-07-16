@@ -35,8 +35,11 @@ public class KitManager {
     }
 
     public IKit getKit(Player p){
-        if(players.containsKey(p)) return players.get(p);
-        return null;
+        try {
+            return players.get(p);
+        }catch(Exception ex){
+            return null;
+        }
     }
 
     public void setKit(Player p, IKit k){

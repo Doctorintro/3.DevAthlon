@@ -1,6 +1,7 @@
 package de.doctorintro.wizardbrawl.listener;
 
 import de.doctorintro.wizardbrawl.WizardBrawl;
+import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -23,7 +24,7 @@ public class PlayerJoinListener implements Listener{
         e.setJoinMessage("");
         Player p = e.getPlayer();
 
-        p.teleport(plugin.getLocationManager().getSpawnLocation());
+        //p.teleport(plugin.getLocationManager().getSpawnLocation());
         p.setHealthScale(20D);
         p.setGameMode(GameMode.ADVENTURE);
         p.setFoodLevel(20);
@@ -36,8 +37,9 @@ public class PlayerJoinListener implements Listener{
         p.setCollidable(false);
         p.getInventory().clear();
         p.getInventory().setArmorContents(null);
-
-        p.openInventory(plugin.getInventoryManager().getSelectWizard());
+        Bukkit.getScheduler().runTaskLater(plugin, ()->{
+            p.openInventory(plugin.getInventoryManager().getSelectWizard());
+        }, 20);
     }
 
 }
