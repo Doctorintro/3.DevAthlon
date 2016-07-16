@@ -30,9 +30,7 @@ public class InventoryCloseListener implements Listener{
             List<MetadataValue> meta = p.getMetadata("openChooser");
             if (plugin.getPlayerManager().getPlayer(p) == null) {
                 if((meta == null || meta.isEmpty())) {
-                    Bukkit.getScheduler().runTaskLater(plugin, () -> {
-                        p.openInventory(plugin.getInventoryManager().getSelectWizard());
-                    }, 1);
+                    Bukkit.getScheduler().runTaskLater(plugin, () -> p.openInventory(plugin.getInventoryManager().getSelectWizard()), 1);
                 }else{
                     p.removeMetadata("openChooser", plugin);
                 }
