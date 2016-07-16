@@ -39,8 +39,8 @@ public class InventoryManager {
             for(int i = 8; i < add.getSize()-9; i+= 9)
                 add.setItem(8, new ItemFactory( new ItemStack(Material.WOOL, 1 , (short)14) ).setDisplayName("§cAbbrechen").build());
             add.setItem(13, kit.getIcon());
-            add.setItem(20, kit.getActiv());
-            add.setItem(14, kit.getPassiv());
+            add.setItem(20, kit.getActiv().getItemStack());
+            add.setItem(14, kit.getPassiv().getItemStack());
             kits.put(kit.getName(), add);
         }
     }

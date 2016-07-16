@@ -28,16 +28,13 @@ public class InventoryClickListener implements Listener{
         Player p = (Player) e.getWhoClicked();
         ItemStack itemStack = e.getCurrentItem();
         Inventory inv = e.getInventory();
-        if(itemStack == null || itemStack.getItemMeta() == null || itemStack.getItemMeta().getDisplayName() == null){
-            return;
-        }
         e.setCancelled(true);
-        if(inv.getTitle().equals(plugin.getInventoryManager().getSelectWizard().getTitle())){
+        if(isCorrectItem(itemStack) && inv.getTitle().equals(plugin.getInventoryManager().getSelectWizard().getTitle())){
             if(itemStack.getType().equals(Material.STAINED_CLAY)){
                 p.setMetadata("openChooser", new FixedMetadataValue(plugin, false));
                 p.openInventory(plugin.getInventoryManager().getKitInventor(ChatColor.stripColor(itemStack.getItemMeta().getDisplayName())));
             }
-        }else if(inv.getTitle().contains("Zunft")){
+        }else if(isCorrectItem(itemStack) && inv.getTitle().contains("Zunft")){
             if(itemStack.getItemMeta().getDisplayName().contains("§a")){
                 p.setMetadata("openChooser", new FixedMetadataValue(plugin, false));
                 plugin.getKitManager().setKit(p, ChatColor.stripColor(inv.getTitle().split(" ")[2]));
@@ -50,4 +47,7 @@ public class InventoryClickListener implements Listener{
         }
     }
 
+    private boolean isCorrectItem(ItemStack itemStack){
+        return itemStack == null || itemStack.getItemMeta() == null || itemStack.getItemMeta().getDisplayName() == null;
+    }
 }

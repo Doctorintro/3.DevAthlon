@@ -1,14 +1,13 @@
 package de.doctorintro.wizardbrawl;
 
 import de.doctorintro.wizardbrawl.command.WizardCommand;
-import de.doctorintro.wizardbrawl.listener.InventoryClickListener;
-import de.doctorintro.wizardbrawl.listener.InventoryCloseListener;
-import de.doctorintro.wizardbrawl.listener.ListenerToCancel;
-import de.doctorintro.wizardbrawl.listener.PlayerJoinListener;
+import de.doctorintro.wizardbrawl.listener.*;
 import de.doctorintro.wizardbrawl.manager.InventoryManager;
 import de.doctorintro.wizardbrawl.manager.KitManager;
 import de.doctorintro.wizardbrawl.manager.LocationManager;
+import de.doctorintro.wizardbrawl.manager.PlayerManager;
 import org.bukkit.Bukkit;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -19,13 +18,17 @@ import java.util.Random;
  */
 public class WizardBrawl extends JavaPlugin{
 
+    private static Plugin plugin;
+
     private LocationManager locationManager;
     private KitManager kitManager;
     private InventoryManager inventoryManager;
+    private PlayerManager playerManager;
 
     private Random random;
 
     public void onEnable() {
+        plugin = this;
         loadManager();
         registerListener();
         registerCommands();
@@ -40,6 +43,7 @@ public class WizardBrawl extends JavaPlugin{
         manager.registerEvents(new InventoryClickListener(this), this);
         manager.registerEvents(new InventoryCloseListener(this), this);
         manager.registerEvents(new ListenerToCancel(), this);
+        manager.registerEvents(new OffHandListener(this), this);
         manager.registerEvents(new PlayerJoinListener(this), this);
     }
 
@@ -47,6 +51,7 @@ public class WizardBrawl extends JavaPlugin{
         locationManager = new LocationManager(this);
         kitManager = new KitManager();
         inventoryManager = new InventoryManager(this);
+        playerManager = new PlayerManager(this);
     }
 
     public Random getRandom() {
@@ -62,4 +67,10 @@ public class WizardBrawl extends JavaPlugin{
     }
 
     public KitManager getKitManager() { return kitManager; }
+
+    public PlayerManager getPlayerManager() {
+        return playerManager;
+    }
+
+    public static Plugin getPlugin() { return plugin; }
 }

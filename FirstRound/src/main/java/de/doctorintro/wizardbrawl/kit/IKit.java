@@ -1,6 +1,7 @@
 package de.doctorintro.wizardbrawl.kit;
 
 
+import de.doctorintro.wizardbrawl.spells.Spell;
 import org.bukkit.inventory.ItemStack;
 
 /**
@@ -10,7 +11,7 @@ public interface IKit {
 
     public String getName();
     public ItemStack getIcon();
-    public ItemStack getActiv();
-    public ItemStack getPassiv();
+    public Spell getActiv();
+    public Spell getPassiv();
 
 }

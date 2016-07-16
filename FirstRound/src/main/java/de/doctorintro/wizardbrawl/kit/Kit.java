@@ -1,5 +1,6 @@
 package de.doctorintro.wizardbrawl.kit;
 
+import de.doctorintro.wizardbrawl.spells.Spell;
 import de.doctorintro.wizardbrawl.utils.ItemFactory;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -11,13 +12,14 @@ import org.bukkit.inventory.ItemStack;
 public class Kit implements IKit{
 
     private String name;
-    public ItemStack icon, activ, passiv;
+    private ItemStack icon;
+    private Spell activ, passiv;
 
-    public Kit(String name, int subid, ChatColor cc, ItemFactory acivItem, ItemFactory passivItem) {
+    public Kit(String name, int subid, ChatColor cc, Spell acivItem, Spell passivItem) {
         this.name = name;
         icon = new ItemFactory(new ItemStack(Material.STAINED_CLAY, 1, (short) subid)).setDisplayName(cc + name).build();
-        activ = acivItem.build();
-        passiv = passivItem.build();
+        activ = acivItem;
+        passiv = passivItem;
     }
 
     @Override
@@ -29,12 +31,12 @@ public class Kit implements IKit{
     }
 
     @Override
-    public ItemStack getActiv() {
+    public Spell getActiv() {
         return activ;
     }
 
     @Override
-    public ItemStack getPassiv() {
+    public Spell getPassiv() {
         return passiv;
     }
 }
