@@ -30,7 +30,6 @@ public class OffHandListener implements Listener{
             if (!wp.getPassiv().getTask().isRunnig()) {
                 e.setCancelled(false);
                     wp.getPassiv().onActive(p);
-                }
             }else{
                 e.setCancelled(true);
             }
