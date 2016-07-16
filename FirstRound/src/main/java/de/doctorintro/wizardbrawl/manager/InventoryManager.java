@@ -41,6 +41,7 @@ public class InventoryManager {
             add.setItem(13, kit.getIcon());
             add.setItem(20, kit.getActiv());
             add.setItem(14, kit.getPassiv());
+            kits.put(kit.getName(), add);
         }
     }
 
