@@ -7,6 +7,9 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.metadata.MetadataValue;
+
+import java.util.List;
 
 /**
  * Created by Doctorintro on 16.07.2016.
@@ -24,10 +27,15 @@ public class InventoryCloseListener implements Listener{
         Player p = (Player) e.getPlayer();
         Inventory inv = e.getInventory();
         if (inv.getTitle().equals(plugin.getInventoryManager().getSelectWizard().getTitle())) {
+            List<MetadataValue> meta = p.getMetadata("openChooser");
             if (plugin.getKitManager().getKit(p) == null) {
-                Bukkit.getScheduler().runTaskLater(plugin, ()->{
-                    p.openInventory(plugin.getInventoryManager().getSelectWizard());
-                }, 1);
+                if((meta == null || meta.isEmpty())) {
+                    Bukkit.getScheduler().runTaskLater(plugin, () -> {
+                        p.openInventory(plugin.getInventoryManager().getSelectWizard());
+                    }, 1);
+                }else{
+                    p.removeMetadata("openChooser", plugin);
+                }
             }
         }
     }
