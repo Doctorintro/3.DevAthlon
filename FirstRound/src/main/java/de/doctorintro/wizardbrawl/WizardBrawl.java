@@ -1,5 +1,6 @@
 package de.doctorintro.wizardbrawl;
 
+import de.doctorintro.wizardbrawl.command.WizardCommand;
 import de.doctorintro.wizardbrawl.listener.InventoryClickListener;
 import de.doctorintro.wizardbrawl.listener.InventoryCloseListener;
 import de.doctorintro.wizardbrawl.listener.ListenerToCancel;
@@ -27,6 +28,11 @@ public class WizardBrawl extends JavaPlugin{
     public void onEnable() {
         loadManager();
         registerListener();
+        registerCommands();
+    }
+
+    private void registerCommands() {
+        this.getCommand("wizard").setExecutor(new WizardCommand());
     }
 
     private void registerListener() {
