@@ -1,10 +1,8 @@
 package de.doctorintro.wizardbrawl.utils;
 
 import com.google.common.collect.Lists;
-import org.bukkit.Color;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.inventory.meta.LeatherArmorMeta;
 
 import java.util.List;
 
@@ -22,13 +20,6 @@ public class ItemFactory {
     public ItemFactory setDisplayName(String name){
         ItemMeta meta = getItemMeta();
         meta.setDisplayName(name);
-        itemStack.setItemMeta(meta);
-        return this;
-    }
-
-    public ItemFactory setLeatherColor(Color color){
-        LeatherArmorMeta meta = (LeatherArmorMeta) getItemMeta();
-        meta.setColor(color);
         itemStack.setItemMeta(meta);
         return this;
     }

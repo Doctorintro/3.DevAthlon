@@ -28,13 +28,12 @@ public class InventoryClickListener implements Listener{
         Player p = (Player) e.getWhoClicked();
         ItemStack itemStack = e.getCurrentItem();
         Inventory inv = e.getInventory();
-        e.setCancelled(true);
         if(itemStack == null || itemStack.getItemMeta() == null || itemStack.getItemMeta().getDisplayName() == null){
-            e.setCancelled(true);
             return;
         }
+        e.setCancelled(true);
         if(inv.getTitle().equals(plugin.getInventoryManager().getSelectWizard().getTitle())){
-            if(itemStack.getType().equals(Material.LEATHER_HELMET)){
+            if(itemStack.getType().equals(Material.STAINED_CLAY)){
                 p.setMetadata("openChooser", new FixedMetadataValue(plugin, false));
                 p.openInventory(plugin.getInventoryManager().getKitInventor(ChatColor.stripColor(itemStack.getItemMeta().getDisplayName())));
             }
@@ -46,8 +45,9 @@ public class InventoryClickListener implements Listener{
             }else if(itemStack.getItemMeta().getDisplayName().contains("§c")){
                 p.closeInventory();
             }
-        }else if(e.getSlotType().equals(InventoryType.SlotType.ARMOR) || e.getSlot() == - 106) e.setCancelled(true);
-        else e.setCancelled(false);
+        }else if(!e.getSlotType().equals(InventoryType.SlotType.ARMOR) && !(e.getSlot() == - 106)) {
+            e.setCancelled(false);
+        }
     }
 
 }

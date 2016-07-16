@@ -4,7 +4,6 @@ import de.doctorintro.wizardbrawl.kit.IKit;
 import de.doctorintro.wizardbrawl.kit.Kit;
 import de.doctorintro.wizardbrawl.utils.ItemFactory;
 import org.bukkit.ChatColor;
-import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -29,7 +28,7 @@ public class KitManager {
     }
 
     private void loadKits(){
-        kits.add( new Kit("Test", Color.AQUA, ChatColor.AQUA, new ItemFactory( new ItemStack(Material.STICK) ), new ItemFactory(new ItemStack(Material.DIAMOND)) ) );
+        kits.add( new Kit("Test", 5, ChatColor.AQUA, new ItemFactory( new ItemStack(Material.STICK) ), new ItemFactory(new ItemStack(Material.DIAMOND)) ) );
     }
 
     public List<IKit> getKits() {
