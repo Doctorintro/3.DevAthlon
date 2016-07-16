@@ -10,6 +10,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -23,6 +24,7 @@ public class KitManager {
 
     public KitManager() {
         kits = new LinkedList<>();
+        players = new LinkedHashMap<>();
         loadKits();
     }
 
@@ -37,15 +39,24 @@ public class KitManager {
     public IKit getKit(Player p){
         try {
             return players.get(p);
-        }catch(Exception ex){
+        } catch(Exception ex) {
             return null;
         }
     }
 
-    public void setKit(Player p, IKit k){
-        if(!players.containsKey(p) || !getKit(p).getName().equals(k.getName())){
+    public IKit getKit(String name){
+        for (IKit kit : kits)
+            if (kit.getName().equalsIgnoreCase(name))
+                return kit;
+        return null;
+    }
+
+    public void setKit(Player p, String name){
+        IKit k = getKit(name);
+        if(k == null)return;
+        if(!players.containsKey(p) || (getKit(p) != null && !getKit(p).getName().equals(k.getName()))){
             p.getInventory().clear();
-            p.getInventory().setArmorContents(new ItemStack[] {k.getIcon(), new ItemStack(Material.LEATHER_CHESTPLATE), new ItemStack(Material.LEATHER_LEGGINGS), new ItemStack(Material.LEATHER_BOOTS)});
+            p.getInventory().setArmorContents(new ItemStack[] { new ItemStack(Material.LEATHER_BOOTS), new ItemStack(Material.LEATHER_LEGGINGS), new ItemStack(Material.LEATHER_CHESTPLATE), k.getIcon()});
             p.getInventory().setItemInOffHand(null);
             p.getInventory().setItem(0, k.getActiv());
             p.getInventory().setItem(1, k.getPassiv());
