@@ -31,8 +31,9 @@ public class SpellTask extends BukkitRunnable{
             isRunnig = false;
             spell.onRefill(spell.getTarget());
         }else if(running <= spell.getDuration()){
-            spell.onFinish(spell.getTarget());
             spell.onRepeat(spell.getTarget());
+        }else if(running == spell.getDuration()){
+            spell.onFinish(spell.getTarget());
         }
         running++;
     }
