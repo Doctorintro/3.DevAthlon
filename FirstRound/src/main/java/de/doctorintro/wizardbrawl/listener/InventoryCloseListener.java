@@ -26,7 +26,7 @@ public class InventoryCloseListener implements Listener{
     public void onClose(InventoryCloseEvent e) {
         Player p = (Player) e.getPlayer();
         Inventory inv = e.getInventory();
-        if (inv.getTitle().equals(plugin.getInventoryManager().getSelectWizard().getTitle())) {
+        if (inv.getTitle().contains("Zunft")) {
             List<MetadataValue> meta = p.getMetadata("openChooser");
             if (plugin.getKitManager().getKit(p) == null) {
                 if((meta == null || meta.isEmpty())) {
