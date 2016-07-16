@@ -12,9 +12,9 @@ public abstract class Spell implements ISpell{
     private ItemStack spell;
     private String name;
     private Player target;
-    private long start, duration, refill;
+    private int duration, refill;
 
-    public Spell(ItemStack spell, String name,long duration, long refill) {
+    public Spell(ItemStack spell, String name, int duration, int refill) {
         this.spell = spell;
         this.name = name;
         this.duration = duration;
@@ -39,17 +39,14 @@ public abstract class Spell implements ISpell{
     }
 
     @Override
-    public long getDuration() {
+    public int getDuration() {
         return duration;
     }
 
     @Override
-    public long getRefillDuration() {
+    public int getRefillDuration() {
         return refill;
     }
-
-    @Override
-    public long getStart() { return start; }
 
     @Override
     public ItemStack getItemStack() { return spell; }
@@ -58,8 +55,9 @@ public abstract class Spell implements ISpell{
     public Player getTarget() { return target; }
 
     @Override
-    public void onActive(Player Target){
+    public void onActive(Player target){
         task = new SpellTask(this);
+        this.target = target;
     }
 
     @Override

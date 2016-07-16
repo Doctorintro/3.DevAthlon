@@ -12,9 +12,8 @@ public interface ISpell extends Cloneable{
     Material getType();
     String getName();
     String getDisplayName();
-    long getDuration();
-    long getRefillDuration();
-    long getStart();
+    int getDuration();
+    int getRefillDuration();
     ItemStack getItemStack();
     Player getTarget();
     void onActive(Player Target);

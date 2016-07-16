@@ -9,26 +9,26 @@ import org.bukkit.scheduler.BukkitRunnable;
 public class SpellTask extends BukkitRunnable{
 
     private ISpell spell;
-    private long duration, refilled;
+    private int running;
     private boolean isRunnig;
 
     public SpellTask(ISpell spell) {
+        running = 0;
         this.spell = spell;
-        this.duration = spell.getStart() + spell.getDuration();
-        this.refilled = spell.getStart() + spell.getRefillDuration();
         runTaskTimer(WizardBrawl.getPlugin(), 0, 20);
     }
 
     @Override
     public void run() {
         if (isRunnig == false) isRunnig = true;
-        if(System.currentTimeMillis() >= refilled) {
+        if(running >= spell.getRefillDuration()) {
             cancel();
             spell.onFinish(spell.getTarget());
-        }else if(System.currentTimeMillis() < duration){
+        }else if(running < spell.getDuration()){
             isRunnig = false;
             spell.onStart(spell.getTarget());
         }
+        running++;
     }
 
     public boolean isRunnig() {

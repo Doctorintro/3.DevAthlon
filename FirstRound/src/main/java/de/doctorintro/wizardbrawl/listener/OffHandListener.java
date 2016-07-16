@@ -27,7 +27,7 @@ public class OffHandListener implements Listener{
         ItemStack main = e.getMainHandItem();
         e.setCancelled(true);
         if(off.getType().equals(wp.getPassiv().getType())){
-            if (!wp.getPassiv().getTask().isRunnig()) {
+            if (wp.getPassiv().getTask() == null || !wp.getPassiv().getTask().isRunnig()) {
                 e.setCancelled(false);
                 wp.getPassiv().onActive(p);
             }else{
