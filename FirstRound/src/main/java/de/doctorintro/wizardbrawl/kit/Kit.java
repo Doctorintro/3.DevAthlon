@@ -1,6 +1,7 @@
 package de.doctorintro.wizardbrawl.kit;
 
 import de.doctorintro.wizardbrawl.utils.ItemFactory;
+import org.bukkit.ChatColor;
 import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
@@ -13,9 +14,9 @@ public class Kit implements IKit{
     private String name;
     public ItemStack icon, activ, passiv;
 
-    public Kit(String name, Color color, ItemFactory acivItem, ItemFactory passivItem) {
+    public Kit(String name, Color color, ChatColor cc, ItemFactory acivItem, ItemFactory passivItem) {
         this.name = name;
-        icon = new ItemFactory(new ItemStack(Material.LEATHER_HELMET)).setDisplayName(color + name).setLeatherColor(color).build();
+        icon = new ItemFactory(new ItemStack(Material.LEATHER_HELMET)).setDisplayName(cc + name).setLeatherColor(color).build();
         activ = acivItem.build();
         passiv = passivItem.build();
     }

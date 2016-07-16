@@ -3,6 +3,7 @@ package de.doctorintro.wizardbrawl.manager;
 import de.doctorintro.wizardbrawl.kit.IKit;
 import de.doctorintro.wizardbrawl.kit.Kit;
 import de.doctorintro.wizardbrawl.utils.ItemFactory;
+import org.bukkit.ChatColor;
 import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -26,7 +27,7 @@ public class KitManager {
     }
 
     private void loadKits(){
-        kits.add( new Kit("Test", Color.AQUA, new ItemFactory( new ItemStack(Material.STICK) ), new ItemFactory(new ItemStack(Material.DIAMOND)) ) );
+        kits.add( new Kit("Test", Color.AQUA, ChatColor.AQUA, new ItemFactory( new ItemStack(Material.STICK) ), new ItemFactory(new ItemStack(Material.DIAMOND)) ) );
     }
 
     public List<IKit> getKits() {
@@ -38,7 +39,7 @@ public class KitManager {
     }
 
     public void setKit(Player p, IKit k){
-        if(!players.containsKey(p) || !players.get(p).getName().equals(k.getName())){
+        if(!players.containsKey(p) || !getKit(p).getName().equals(k.getName())){
             p.getInventory().clear();
             p.getInventory().setArmorContents(new ItemStack[] {k.getIcon(), new ItemStack(Material.LEATHER_CHESTPLATE), new ItemStack(Material.LEATHER_LEGGINGS), new ItemStack(Material.LEATHER_BOOTS)});
             p.getInventory().setItemInOffHand(null);
