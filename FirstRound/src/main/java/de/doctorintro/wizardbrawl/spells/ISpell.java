@@ -14,10 +14,12 @@ public interface ISpell extends Cloneable{
     String getDisplayName();
     int getDuration();
     int getRefillDuration();
+    int getDifferent(int i);
     ItemStack getItemStack();
     Player getTarget();
     void onActive(Player Target);
     void onStart(Player Target);
+    void onRepeat(Player Target);
     void onFinish(Player target);
     SpellTask getTask();
     Object cloned() throws CloneNotSupportedException;

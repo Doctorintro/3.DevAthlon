@@ -15,6 +15,11 @@ public class SpellTask extends BukkitRunnable{
     public SpellTask(ISpell spell) {
         running = 0;
         this.spell = spell;
+
+    }
+
+    public void go(){
+        running = 0;
         runTaskTimer(WizardBrawl.getPlugin(), 0, 20);
     }
 
@@ -26,12 +31,18 @@ public class SpellTask extends BukkitRunnable{
             isRunnig = false;
             spell.onFinish(spell.getTarget());
         }else if(running < spell.getDuration()){
-            spell.onStart(spell.getTarget());
+            spell.onRepeat(spell.getTarget());
         }
         running++;
+    }
+
+    public void update(ISpell spell){
+        this.spell = spell;
     }
 
     public boolean isRunnig() {
         return isRunnig;
     }
+
+    public int getRunning() { return running; }
 }

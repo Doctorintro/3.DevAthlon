@@ -24,7 +24,12 @@ public class BeskermSpell extends Spell{
     }
 
     @Override
+    public void onRepeat(Player target) {
+        target.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 20*2, 2, true, true));
+    }
+
+    @Override
     public void onStart(Player target) {
-        target.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 20*2, 3, true, true));
+
     }
 }

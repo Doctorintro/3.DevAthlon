@@ -12,17 +12,17 @@ public abstract class Spell implements ISpell{
 
     private ItemStack spell;
     private String name;
-    private Player target;
+    public Player player;
     private int duration, refill;
+    private SpellTask task;
 
-    public Spell(ItemFactory spellfactory, String name, boolean activ, int duration, int refill) {
-        this.spell = spellfactory.setDisplayName( (activ ? "§c" : "§b") + name).build();
+    public Spell(ItemFactory spellfactory, String name, boolean active, int duration, int refill) {
+        this.spell = spellfactory.setDisplayName( (active ? "§c" : "§b") + name).build();
         this.name = name;
         this.duration = duration;
         this.refill = refill;
+        this.task = new SpellTask(this);
     }
-
-    private SpellTask task;
 
     @Override
     public Material getType() {
@@ -50,15 +50,24 @@ public abstract class Spell implements ISpell{
     }
 
     @Override
+    public int getDifferent(int i) {
+        int r = i - task.getRunning();
+        return r < 0 ? 0 : r;
+    }
+
+    @Override
     public ItemStack getItemStack() { return spell; }
 
     @Override
-    public Player getTarget() { return target; }
+    public Player getTarget() {
+        return player; }
 
     @Override
-    public void onActive(Player target){
-        task = new SpellTask(this);
-        this.target = target;
+    public void onActive(Player player){
+        this.player = player;
+        task.update(this);
+        task.go();
+        onStart(player);
     }
 
     @Override
@@ -69,6 +78,7 @@ public abstract class Spell implements ISpell{
         return super.clone();
     }
 
+    public abstract void onRepeat(Player target);
 
     public abstract void onStart(Player target);
 }
