@@ -4,6 +4,8 @@ import de.doctorintro.wizardbrawl.WizardBrawl;
 import de.doctorintro.wizardbrawl.kit.IKit;
 import de.doctorintro.wizardbrawl.kit.Kit;
 import de.doctorintro.wizardbrawl.spells.BeskermSpell;
+import de.doctorintro.wizardbrawl.spells.Spoed;
+import de.doctorintro.wizardbrawl.spells.SwartGatBom;
 import de.doctorintro.wizardbrawl.spells.WeerligSpell;
 import de.doctorintro.wizardbrawl.utils.ItemFactory;
 import org.bukkit.ChatColor;
@@ -31,7 +33,8 @@ public class KitManager {
     }
 
     private void loadKits() {
-        kits.add(new Kit("Test", 5, ChatColor.AQUA, new WeerligSpell(), new BeskermSpell()));
+        kits.add(new Kit("Afrikaanse", 12, ChatColor.GOLD, new WeerligSpell(), new BeskermSpell()));
+        kits.add(new Kit("Speedy", 3, ChatColor.AQUA, new Spoed(), new SwartGatBom()));
     }
 
     public List<IKit> getKits() {
