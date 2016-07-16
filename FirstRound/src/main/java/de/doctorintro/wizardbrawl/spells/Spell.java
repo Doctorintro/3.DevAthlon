@@ -77,8 +77,4 @@ public abstract class Spell implements ISpell{
     public Object cloned() throws CloneNotSupportedException {
         return super.clone();
     }
-
-    public abstract void onRepeat(Player target);
-
-    public abstract void onStart(Player target);
 }

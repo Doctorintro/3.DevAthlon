@@ -34,6 +34,11 @@ public class WeerligSpell extends Spell{
     }
 
     @Override
+    public void onRefill(Player target) {
+
+    }
+
+    @Override
     public void onStart(Player target) {
         loc = target.getTargetBlock(new HashSet<Material>(), 50).getLocation();
     }

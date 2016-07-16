@@ -18,9 +18,12 @@ public class BeskermSpell extends Spell{
 
     @Override
     public void onFinish(Player target) {
-        ItemStack offhand = target.getInventory().getItemInOffHand().clone();
         target.getInventory().setItemInOffHand(new ItemStack(Material.AIR));
-        target.getInventory().addItem(offhand);
+    }
+
+    @Override
+    public void onRefill(Player target) {
+        target.getInventory().addItem(getItemStack());
     }
 
     @Override

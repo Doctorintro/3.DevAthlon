@@ -21,6 +21,7 @@ public interface ISpell extends Cloneable{
     void onStart(Player Target);
     void onRepeat(Player Target);
     void onFinish(Player target);
+    void onRefill(Player target);
     SpellTask getTask();
     Object cloned() throws CloneNotSupportedException;
 }
