@@ -13,6 +13,10 @@ public class WizardCommand implements CommandExecutor{
 
     private WizardBrawl plugin;
 
+    public WizardCommand(WizardBrawl plugin) {
+        this.plugin = plugin;
+    }
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String s, String[] strings) {
         if(!(sender instanceof Player)) return false;

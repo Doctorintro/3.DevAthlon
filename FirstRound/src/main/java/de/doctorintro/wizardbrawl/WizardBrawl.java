@@ -32,7 +32,7 @@ public class WizardBrawl extends JavaPlugin{
     }
 
     private void registerCommands() {
-        this.getCommand("wizard").setExecutor(new WizardCommand());
+        this.getCommand("wizard").setExecutor(new WizardCommand(this));
     }
 
     private void registerListener() {
