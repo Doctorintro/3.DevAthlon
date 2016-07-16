@@ -1,5 +1,6 @@
 package de.doctorintro.wizardbrawl.spells;
 
+import de.doctorintro.wizardbrawl.utils.ItemFactory;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -9,11 +10,10 @@ import org.bukkit.potion.PotionEffectType;
 /**
  * Created by Doctorintro on 16.07.2016.
  */
-public class BasicTestSpell extends Spell{
+public class BeskermSpell extends Spell{
 
-    public BasicTestSpell() {
-        super(new ItemStack(Material.DIAMOND), "GLOWING", 20, 50);
-        System.out.print(getDuration()+"");
+    public BeskermSpell() {
+        super(new ItemFactory(new ItemStack(Material.DIAMOND)).setLore("§bGeneriert ein", "§b§lSchutzschild §r§bfür dich."), "Beskerm", false, 20, 50);
     }
 
     @Override
@@ -25,6 +25,6 @@ public class BasicTestSpell extends Spell{
 
     @Override
     public void onStart(Player target) {
-        target.addPotionEffect(new PotionEffect(PotionEffectType.GLOWING, 20, 10));
+        target.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 20*2, 3, true, true));
     }
 }

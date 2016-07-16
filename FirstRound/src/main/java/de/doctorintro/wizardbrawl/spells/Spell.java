@@ -1,5 +1,6 @@
 package de.doctorintro.wizardbrawl.spells;
 
+import de.doctorintro.wizardbrawl.utils.ItemFactory;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -14,8 +15,8 @@ public abstract class Spell implements ISpell{
     private Player target;
     private int duration, refill;
 
-    public Spell(ItemStack spell, String name, int duration, int refill) {
-        this.spell = spell;
+    public Spell(ItemFactory spellfactory, String name, boolean activ, int duration, int refill) {
+        this.spell = spellfactory.setDisplayName( (activ ? "§c" : "§b") + name).build();
         this.name = name;
         this.duration = duration;
         this.refill = refill;
