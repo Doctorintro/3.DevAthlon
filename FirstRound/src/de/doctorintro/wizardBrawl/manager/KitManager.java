@@ -22,8 +22,11 @@ public class KitManager {
         loadKits();
     }
 
-    public void loadKits(){
+    private void loadKits(){
         kits.add( new Kit("Test", Color.AQUA, new ItemFactory( new ItemStack(Material.STICK) ), new ItemFactory(new ItemStack(Material.DIAMOND)) ) );
     }
 
+    public List<IKit> getKits() {
+        return kits;
+    }
 }

@@ -1,6 +1,7 @@
 package de.doctorintro.wizardBrawl;
 
 import de.doctorintro.wizardBrawl.manager.InventoryManager;
+import de.doctorintro.wizardBrawl.manager.KitManager;
 import de.doctorintro.wizardBrawl.manager.LocationManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -12,6 +13,7 @@ import java.util.Random;
 public class WizardBrawl extends JavaPlugin{
 
     private LocationManager locationManager;
+    private KitManager kitManager;
     private InventoryManager inventoryManager;
 
     private Random random;
@@ -22,7 +24,8 @@ public class WizardBrawl extends JavaPlugin{
 
     private void loadManager() {
         locationManager = new LocationManager(this);
-        inventoryManager = new InventoryManager();
+        kitManager = new KitManager();
+        inventoryManager = new InventoryManager(this);
     }
 
     public void onDisable() {
@@ -40,4 +43,6 @@ public class WizardBrawl extends JavaPlugin{
     public LocationManager getLocationManager() {
         return locationManager;
     }
+
+    public KitManager getKitManager() { return kitManager; }
 }
