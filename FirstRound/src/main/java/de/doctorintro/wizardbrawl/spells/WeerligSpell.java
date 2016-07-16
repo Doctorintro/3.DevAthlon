@@ -15,15 +15,14 @@ import java.util.HashSet;
 public class WeerligSpell extends Spell{
 
     private Location loc;
-    private WizardBrawl plugin;
 
     public WeerligSpell() {
-        super(new ItemFactory(new ItemStack(Material.BLAZE_ROD)), "Weerlig", true, 15, 52);
+        super(new ItemFactory(new ItemStack(Material.BLAZE_ROD)), "Weerlig", true, 8, 52);
     }
 
     @Override
     public void onRepeat(Player target) {
-        int i = plugin.getRandom().nextInt(5);
+        int i = WizardBrawl.getRandom().nextInt(7);
         if(3 <= i || i <= 5){
             loc.getWorld().strikeLightning( loc.clone().add( i * 2 - Math.random(), 0, i / 2 + Math.random() ) );
         }

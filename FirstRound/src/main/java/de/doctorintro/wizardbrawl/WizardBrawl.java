@@ -19,13 +19,12 @@ import java.util.Random;
 public class WizardBrawl extends JavaPlugin{
 
     private static Plugin plugin;
+    private static Random random;
 
     private LocationManager locationManager;
     private KitManager kitManager;
     private InventoryManager inventoryManager;
     private PlayerManager playerManager;
-
-    private Random random;
 
     public void onEnable() {
         plugin = this;
@@ -56,7 +55,7 @@ public class WizardBrawl extends JavaPlugin{
         playerManager = new PlayerManager(this);
     }
 
-    public Random getRandom() {
+    public static Random getRandom() {
         return random;
     }
 
