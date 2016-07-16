@@ -7,6 +7,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.metadata.FixedMetadataValue;
@@ -40,11 +41,13 @@ public class InventoryClickListener implements Listener{
         }else if(inv.getTitle().contains("Zunft")){
             if(itemStack.getItemMeta().getDisplayName().contains("§a")){
                 p.setMetadata("openChooser", new FixedMetadataValue(plugin, false));
+                plugin.getKitManager().setKit(p, ChatColor.stripColor(inv.getTitle().split(" ")[2]));
                 p.closeInventory();
             }else if(itemStack.getItemMeta().getDisplayName().contains("§c")){
                 p.closeInventory();
             }
-        } else e.setCancelled(false);
+        }else if(e.getSlotType().equals(InventoryType.SlotType.ARMOR) || e.getSlot() == - 106) e.setCancelled(true);
+        else e.setCancelled(false);
     }
 
 }
