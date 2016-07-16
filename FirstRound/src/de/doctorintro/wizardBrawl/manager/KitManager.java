@@ -36,4 +36,16 @@ public class KitManager {
     public IKit getKit(Player p){
         return players.get(p);
     }
+
+    public void setKit(Player p, IKit k){
+        if(!players.containsKey(p) || !players.get(p).getName().equals(k.getName())){
+            p.getInventory().clear();
+            p.getInventory().setArmorContents(new ItemStack[] {k.getIcon(), new ItemStack(Material.LEATHER_CHESTPLATE), new ItemStack(Material.LEATHER_LEGGINGS), new ItemStack(Material.LEATHER_BOOTS)});
+            p.getInventory().setItemInOffHand(null);
+            p.getInventory().setItem(0, k.getActiv());
+            p.getInventory().setItem(1, k.getPassiv());
+            if(players.containsKey(p)) players.remove(p);
+            players.put(p, k);
+        }
+    }
 }
