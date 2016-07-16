@@ -12,12 +12,12 @@ import java.util.HashSet;
 /**
  * Created by Doctorintro on 16.07.2016.
  */
-public class Weerlig extends Spell{
+public class WeerligSpell extends Spell{
 
     private Location loc;
     private WizardBrawl plugin;
 
-    public Weerlig(ItemFactory spellfactory, String name, boolean active, int duration, int refill) {
+    public WeerligSpell() {
         super(new ItemFactory(new ItemStack(Material.BLAZE_ROD)), "Weerlig", true, 15, 52);
     }
 
