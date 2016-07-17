@@ -6,10 +6,12 @@ import de.doctorintro.wizardbrawl.player.IPlayer;
 import de.doctorintro.wizardbrawl.player.WizardPlayer;
 import de.doctorintro.wizardbrawl.spells.ISpell;
 import de.doctorintro.wizardbrawl.utils.Actionbar;
+import de.doctorintro.wizardbrawl.utils.SortKillStreaks;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitTask;
 
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -53,5 +55,9 @@ public class PlayerManager {
         int duration = spell.getDifferent(spell.getDuration());
         int refill = spell.getDifferent(spell.getRefillDuration());
         return display + (isRunning ? " §aWirkung: §e" + duration + "s §aRefill: §e" + refill + "s" : " §aBereit");
+    }
+
+    public void sort(){
+        Collections.sort(playerList, new SortKillStreaks());
     }
 }
