@@ -47,6 +47,7 @@ public class WizardBrawl extends JavaPlugin{
         manager.registerEvents(new ListenerToCancel(), this);
         manager.registerEvents(new OffHandListener(this), this);
         manager.registerEvents(new PlayerDeathListener(this), this);
+        manager.registerEvents(new PlayerDiconenctListener(this), this);
         manager.registerEvents(new PlayerJoinListener(this), this);
         manager.registerEvents(new PlayerRespawnListener(this), this);
     }

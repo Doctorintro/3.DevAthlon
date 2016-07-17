@@ -50,7 +50,7 @@ public class KitManager {
         return null;
     }
 
-    public void setKit(Player p, String name) throws CloneNotSupportedException {
+    public void setKit(Player p, String name, boolean newChoose) throws CloneNotSupportedException {
         IKit k = getKit(name);
         if (k == null) return;
         p.teleport(plugin.getLocationManager().getRandomSpawnLocation().clone().add(0, 0.3, 0));
@@ -60,7 +60,7 @@ public class KitManager {
         p.getInventory().setItemInOffHand(null);
         p.getInventory().setItem(0, k.getActiv().getItemStack());
         p.getInventory().setItem(1, k.getPassiv().getItemStack());
-        plugin.getPlayerManager().onKitChoose(p, k);
+        if(newChoose) plugin.getPlayerManager().onKitChoose(p, k);
     }
 
     private class Armor{

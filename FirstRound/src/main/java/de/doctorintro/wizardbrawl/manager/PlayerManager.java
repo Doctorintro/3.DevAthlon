@@ -6,6 +6,7 @@ import de.doctorintro.wizardbrawl.player.IPlayer;
 import de.doctorintro.wizardbrawl.player.WizardPlayer;
 import de.doctorintro.wizardbrawl.spells.ISpell;
 import de.doctorintro.wizardbrawl.utils.Actionbar;
+import de.doctorintro.wizardbrawl.utils.ScoreboardUtil;
 import de.doctorintro.wizardbrawl.utils.SortKillStreaks;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -39,6 +40,7 @@ public class PlayerManager {
     public void onKitChoose(Player p, IKit kit) throws CloneNotSupportedException {
         playerList.add(new WizardPlayer(kit, p));
         sort();
+        playerList.forEach(all -> { ScoreboardUtil.createScoreboard(all); });
     }
 
     public IPlayer getPlayer(Player p){

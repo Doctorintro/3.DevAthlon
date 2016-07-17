@@ -1,6 +1,7 @@
 package de.doctorintro.wizardbrawl.listener;
 
 import de.doctorintro.wizardbrawl.WizardBrawl;
+import de.doctorintro.wizardbrawl.player.IPlayer;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerRespawnEvent;
@@ -17,8 +18,16 @@ public class PlayerRespawnListener implements Listener{
     }
 
     @EventHandler
-    public void on(PlayerRespawnEvent e){
-        e.setRespawnLocation(plugin.getLocationManager().getRandomSpawnLocation());
+    public void on(PlayerRespawnEvent e) throws CloneNotSupportedException {
+        IPlayer wp = plugin.getPlayerManager().getPlayer(e.getPlayer());
+        if(wp != null) {
+            e.setRespawnLocation(plugin.getLocationManager().getRandomSpawnLocation());
+            plugin.getKitManager().setKit(wp.getPlayer(), wp.getKit().getName(), false);
+        }else{
+            e.setRespawnLocation(plugin.getLocationManager().getSpawnLocation());
+            wp.getPlayer().openInventory(plugin.getInventoryManager().getSelectWizard());
+        }
+
     }
 
 }

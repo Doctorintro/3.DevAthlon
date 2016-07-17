@@ -3,7 +3,6 @@ package de.doctorintro.wizardbrawl.listener;
 import de.doctorintro.wizardbrawl.WizardBrawl;
 import de.doctorintro.wizardbrawl.player.IPlayer;
 import de.doctorintro.wizardbrawl.utils.ScoreboardUtil;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -33,7 +32,6 @@ public class PlayerDeathListener implements Listener{
             int kills = wpk.getKillStreak();
             kills++;
             wpk.setKillStreak(kills);
-            Bukkit.broadcastMessage(kills+"");
             wp.setTarget(p.getKiller());
         }
         plugin.getPlayerManager().sort();

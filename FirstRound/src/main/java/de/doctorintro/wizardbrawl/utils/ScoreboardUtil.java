@@ -35,7 +35,7 @@ public class ScoreboardUtil {
             p.setScore(wp.getKillStreak());
         }
 
-        Score dummy = obj.getScore("§l------------------");
+        Score dummy = obj.getScore("§l──────────");
         Score you = obj.getScore("§6"+player.getPlayer().getDisplayName()+"§a: "+player.getKillStreak());
         you.setScore(-2);
         dummy.setScore(-1);
