@@ -33,14 +33,14 @@ public class InventoryManager {
         for(IKit kit : plugin.getKitManager().getKits()){
             Inventory add = Bukkit.createInventory(null , 3*9, "Zunft des "+kit.getName());
             for (int i = 0; i < add.getSize(); i++)
-                add.setItem(i, new ItemFactory( new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 15) ).setDisplayName("").build());
-            for(int i = 0; i < add.getSize()-9; i+= 9)
-                add.setItem(0, new ItemFactory( new ItemStack(Material.WOOL, 1, (short) 5) ).setDisplayName("§aAuswählen").build());
-            for(int i = 8; i < add.getSize()-9; i+= 9)
-                add.setItem(8, new ItemFactory( new ItemStack(Material.WOOL, 1 , (short)14) ).setDisplayName("§cAbbrechen").build());
+                add.setItem(i, new ItemFactory( new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 15) ).setDisplayName(" ").build());
+            for(int i = 0; i < add.getSize(); i+= 9)
+                add.setItem(i, new ItemFactory( new ItemStack(Material.WOOL, 1, (short) 5) ).setDisplayName("§aAuswählen").build());
+            for(int i = 8; i < add.getSize(); i+= 9)
+                add.setItem(i, new ItemFactory( new ItemStack(Material.WOOL, 1 , (short)14) ).setDisplayName("§cAbbrechen").build());
             add.setItem(13, kit.getIcon());
-            add.setItem(20, kit.getActiv().getItemStack());
-            add.setItem(14, kit.getPassiv().getItemStack());
+            add.setItem(11, kit.getActiv().getItemStack());
+            add.setItem(15, kit.getPassiv().getItemStack());
             kits.put(kit.getName(), add);
         }
     }
