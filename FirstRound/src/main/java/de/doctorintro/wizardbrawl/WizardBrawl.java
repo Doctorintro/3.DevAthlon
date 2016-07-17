@@ -39,12 +39,15 @@ public class WizardBrawl extends JavaPlugin{
 
     private void registerListener() {
         PluginManager manager = Bukkit.getPluginManager();
+        manager.registerEvents(new EntityDamgeListener(this), this);
         manager.registerEvents(new InventoryClickListener(this), this);
         manager.registerEvents(new InventoryCloseListener(this), this);
         manager.registerEvents(new ItemInteractListener(this), this);
         manager.registerEvents(new ListenerToCancel(), this);
         manager.registerEvents(new OffHandListener(this), this);
+        manager.registerEvents(new PlayerDeathListener(), this);
         manager.registerEvents(new PlayerJoinListener(this), this);
+        manager.registerEvents(new PlayerRespawnListener(this), this);
     }
 
     private void loadManager() {

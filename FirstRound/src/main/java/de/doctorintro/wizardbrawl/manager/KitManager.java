@@ -12,6 +12,8 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -51,6 +53,8 @@ public class KitManager {
     public void setKit(Player p, String name) throws CloneNotSupportedException {
         IKit k = getKit(name);
         if (k == null) return;
+        p.teleport(plugin.getLocationManager().getRandomSpawnLocation().clone().add(0, 0.3, 0));
+        p.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 10, 3));
         p.getInventory().clear();
         p.getInventory().setArmorContents(new ItemStack[]{armor.getBoots(), armor.getLeggins(), armor.getChestplate(), k.getIcon()});
         p.getInventory().setItemInOffHand(null);
