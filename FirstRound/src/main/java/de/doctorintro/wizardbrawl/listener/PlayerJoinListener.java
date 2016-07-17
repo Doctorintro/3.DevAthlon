@@ -24,7 +24,7 @@ public class PlayerJoinListener implements Listener{
         e.setJoinMessage("");
         Player p = e.getPlayer();
 
-        //p.teleport(plugin.getLocationManager().getSpawnLocation());
+        p.teleport(plugin.getLocationManager().getSpawnLocation());
         p.setHealthScale(20D);
         p.setGameMode(GameMode.ADVENTURE);
         p.setFoodLevel(20);
