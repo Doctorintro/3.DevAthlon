@@ -37,6 +37,7 @@ public class PlayerJoinListener implements Listener{
         p.setCollidable(false);
         p.getInventory().clear();
         p.getInventory().setArmorContents(null);
+        p.setFireTicks(0);
         Bukkit.getScheduler().runTaskLater(plugin, ()->{
             p.openInventory(plugin.getInventoryManager().getSelectWizard());
         }, 20);
