@@ -17,7 +17,7 @@ public abstract class Spell implements ISpell{
     private SpellTask task;
 
     public Spell(ItemFactory spellfactory, String name, boolean active, int duration, int refill) {
-        this.spell = spellfactory.setDisplayName( (active ? "§c" : "§b") + name).build();
+        this.spell = spellfactory.setDisplayName( (active ? "§5" : "§b") + name).build();
         this.name = name;
         this.duration = duration;
         this.refill = refill;
