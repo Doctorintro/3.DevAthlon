@@ -18,7 +18,7 @@ public class BeskermSpell extends Spell{
 
     @Override
     public void onFinish(Player target) {
-        target.getInventory().setItemInOffHand(new ItemStack(Material.AIR));
+
     }
 
     @Override
@@ -32,7 +32,5 @@ public class BeskermSpell extends Spell{
     }
 
     @Override
-    public void onStart(Player target) {
-
-    }
+    public void onStart(Player target) { target.getInventory().setItemInOffHand(new ItemStack(Material.AIR)); }
 }

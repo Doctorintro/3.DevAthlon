@@ -3,7 +3,6 @@ package de.doctorintro.wizardbrawl.player;
 import de.doctorintro.wizardbrawl.kit.IKit;
 import de.doctorintro.wizardbrawl.spells.ISpell;
 import org.bukkit.entity.Player;
-import org.bukkit.scoreboard.Scoreboard;
 
 /**
  * Created by Doctorintro on 16.07.2016.
@@ -14,7 +13,8 @@ public interface IPlayer{
     ISpell getPassiv();
     IKit getKit();
     Player getPlayer();
-    Scoreboard getScoreboard();
+    Player getTarget();
+    void setTarget(Player target);
     int getKillStreak();
-
+    void setKillStreak(int i);
 }

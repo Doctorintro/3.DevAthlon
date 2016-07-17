@@ -38,6 +38,7 @@ public class PlayerManager {
 
     public void onKitChoose(Player p, IKit kit) throws CloneNotSupportedException {
         playerList.add(new WizardPlayer(kit, p));
+        sort();
     }
 
     public IPlayer getPlayer(Player p){
@@ -58,6 +59,10 @@ public class PlayerManager {
     }
 
     public void sort(){
-        Collections.sort(playerList, new SortKillStreaks());
+        if(playerList != null && playerList.size() > 1) Collections.sort(playerList, new SortKillStreaks());
+    }
+
+    public List<IPlayer> getPlayerList() {
+        return playerList;
     }
 }

@@ -6,6 +6,7 @@ import de.doctorintro.wizardbrawl.manager.InventoryManager;
 import de.doctorintro.wizardbrawl.manager.KitManager;
 import de.doctorintro.wizardbrawl.manager.LocationManager;
 import de.doctorintro.wizardbrawl.manager.PlayerManager;
+import de.doctorintro.wizardbrawl.utils.ScoreboardUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
@@ -45,7 +46,7 @@ public class WizardBrawl extends JavaPlugin{
         manager.registerEvents(new ItemInteractListener(this), this);
         manager.registerEvents(new ListenerToCancel(), this);
         manager.registerEvents(new OffHandListener(this), this);
-        manager.registerEvents(new PlayerDeathListener(), this);
+        manager.registerEvents(new PlayerDeathListener(this), this);
         manager.registerEvents(new PlayerJoinListener(this), this);
         manager.registerEvents(new PlayerRespawnListener(this), this);
     }
@@ -56,6 +57,7 @@ public class WizardBrawl extends JavaPlugin{
         kitManager = new KitManager(this);
         inventoryManager = new InventoryManager(this);
         playerManager = new PlayerManager(this);
+        ScoreboardUtil.setPlugin(this);
     }
 
     public static Random getRandom() {
