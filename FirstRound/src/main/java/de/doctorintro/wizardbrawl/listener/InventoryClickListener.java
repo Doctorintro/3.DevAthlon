@@ -38,7 +38,7 @@ public class InventoryClickListener implements Listener{
             if(itemStack.getItemMeta().getDisplayName().contains("§a")){
                 try {
                     p.setMetadata("openChooser", new FixedMetadataValue(plugin, false));
-                    plugin.getKitManager().setKit(p, ChatColor.stripColor(inv.getTitle().split(" ")[2]));
+                    plugin.getKitManager().setKit(p, ChatColor.stripColor(inv.getTitle().split(" ")[2]), true);
                     p.closeInventory();
                 } catch (CloneNotSupportedException e1) {
                     e1.printStackTrace();
