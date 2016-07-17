@@ -15,19 +15,20 @@ import org.bukkit.inventory.ItemStack;
  */
 public class SwartGatBom extends Spell{
 
-    public Item item;
+    private WizardBrawl plugin;
+    private Item item;
 
-    public SwartGatBom() {
+    public SwartGatBom(WizardBrawl plugin) {
         super(new ItemFactory( new ItemStack(Material.POISONOUS_POTATO)), "SwartGatBom", false, 10, 43);
+        this.plugin = plugin;
     }
 
     @Override
     public void onFinish(Player target) {
-        target.getInventory().setItemInOffHand(new ItemStack(Material.AIR));
         Bukkit.getOnlinePlayers().forEach(p -> {
             Particle.sendParticle(p, item.getLocation(), "hugeexplosion", 5 + WizardBrawl.getRandom().nextInt(2));
-            if(p.getLocation().distanceSquared(item.getLocation()) < 5){
-                p.damage(5, item);
+            if(p.getLocation().distanceSquared(item.getLocation()) <= 5){
+                p.damage(5);
                 p.playSound(item.getLocation(), Sound.ENTITY_GENERIC_EXPLODE, 2, 2);
             }
         });
@@ -36,7 +37,7 @@ public class SwartGatBom extends Spell{
 
     @Override
     public void onRefill(Player target) {
-        target.getInventory().setItemInOffHand(getItemStack());
+        target.getInventory().addItem(getItemStack());
     }
 
     @Override
@@ -52,6 +53,7 @@ public class SwartGatBom extends Spell{
     @Override
     public void onStart(Player target) {
         item = target.getWorld().dropItem(target.getLocation(), getItemStack());
-        item.setVelocity(target.getLocation().getDirection().multiply(5));
+        item.setVelocity(target.getLocation().getDirection().multiply(1.3));
+        Bukkit.getScheduler().runTaskLater(plugin, ()-> target.getInventory().setItemInOffHand(new ItemStack(Material.AIR)), 5);
     }
 }

@@ -35,8 +35,8 @@ public class KitManager {
     }
 
     private void loadKits() {
-        kits.add(new Kit("Afrikaanse", 12, ChatColor.GOLD, new WeerligSpell(), new BeskermSpell()));
-        kits.add(new Kit("Speedy", 3, ChatColor.AQUA, new Spoed(), new SwartGatBom()));
+        kits.add(new Kit("Afrikaanse", 12, ChatColor.GOLD, new WeerligSpell(), new BeskermSpell(plugin)));
+        kits.add(new Kit("Speedy", 3, ChatColor.AQUA, new Spoed(), new SwartGatBom(plugin)));
     }
 
     public List<IKit> getKits() {

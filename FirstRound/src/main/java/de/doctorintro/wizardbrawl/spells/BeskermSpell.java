@@ -1,6 +1,8 @@
 package de.doctorintro.wizardbrawl.spells;
 
+import de.doctorintro.wizardbrawl.WizardBrawl;
 import de.doctorintro.wizardbrawl.utils.ItemFactory;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -12,8 +14,11 @@ import org.bukkit.potion.PotionEffectType;
  */
 public class BeskermSpell extends Spell{
 
-    public BeskermSpell() {
+    private WizardBrawl plugin;
+
+    public BeskermSpell(WizardBrawl plugin) {
         super(new ItemFactory(new ItemStack(Material.DIAMOND)).setLore("§bGeneriert ein", "§b§lSchutzschild §r§bfür dich."), "Beskerm", false, 20, 50);
+        this.plugin = plugin;
     }
 
     @Override
@@ -32,5 +37,7 @@ public class BeskermSpell extends Spell{
     }
 
     @Override
-    public void onStart(Player target) { target.getInventory().setItemInOffHand(new ItemStack(Material.AIR)); }
+    public void onStart(Player target) {
+        Bukkit.getScheduler().runTaskLater(plugin, ()-> target.getInventory().setItemInOffHand(new ItemStack(Material.AIR)), 5);
+    }
 }

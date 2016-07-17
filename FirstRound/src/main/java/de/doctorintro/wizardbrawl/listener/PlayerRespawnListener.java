@@ -25,7 +25,7 @@ public class PlayerRespawnListener implements Listener{
             plugin.getKitManager().setKit(wp.getPlayer(), wp.getKit().getName(), false);
         }else{
             e.setRespawnLocation(plugin.getLocationManager().getSpawnLocation());
-            wp.getPlayer().openInventory(plugin.getInventoryManager().getSelectWizard());
+            e.getPlayer().openInventory(plugin.getInventoryManager().getSelectWizard());
         }
 
     }

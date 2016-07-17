@@ -34,6 +34,6 @@ public class Spoed extends Spell{
 
     @Override
     public void onStart(Player target) {
-        target.setVelocity(target.getLocation().getDirection().multiply(target.getWalkSpeed()*20));
+        target.setVelocity(target.getLocation().getDirection().multiply(target.getWalkSpeed()*10));
     }
 }

@@ -66,8 +66,8 @@ public abstract class Spell implements ISpell{
     public void onActive(Player player){
         this.player = player;
         task = new SpellTask(this);
+        onStart(this.player);
         task.go();
-        onStart(player);
     }
 
     @Override
