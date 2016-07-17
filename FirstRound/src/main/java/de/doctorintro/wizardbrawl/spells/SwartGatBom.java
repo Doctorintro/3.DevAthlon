@@ -9,7 +9,6 @@ import org.bukkit.Sound;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.util.Vector;
 
 /**
  * Created by Doctorintro on 17.07.2016.
@@ -53,6 +52,6 @@ public class SwartGatBom extends Spell{
     @Override
     public void onStart(Player target) {
         item = target.getWorld().dropItem(target.getLocation(), getItemStack());
-        item.setVelocity(target.getLocation().getDirection().multiply(target.getWalkSpeed() * 20).add(new Vector(0, 2, 0)));
+        item.setVelocity(target.getLocation().getDirection().multiply(5));
     }
 }
