@@ -13,12 +13,10 @@ import java.util.logging.Logger;
  */
 public abstract class PacketHandler extends SimpleChannelInboundHandler<Packet> {
 
-    private Packet packet;
     private Channel channel;
     private BlockingQueue<Packet> waiting;
 
-    public PacketHandler(Packet packet) {
-        if (packet != null) this.packet = packet;
+    public PacketHandler() {
         this.waiting = new LinkedBlockingQueue<Packet>();
     }
 
@@ -27,13 +25,9 @@ public abstract class PacketHandler extends SimpleChannelInboundHandler<Packet> 
         System.out.println("Activate Channel");
         this.channel = ctx.channel();
         System.out.println(waiting.isEmpty());
-        waiting.forEach(packet -> {
-            send(packet);
-        });
+        waiting.forEach(packet -> send(packet));
         waiting.clear();
         System.out.println("Finish with Activation");
-        if (packet != null) send(packet);
-        packet = null;
     }
 
     public void send(Packet packet) {
