@@ -17,4 +17,10 @@ public class ProxyMain extends Plugin {
         client.run();
         client.send(new ClientRegisterPacket(ClientRegisterPacket.Type.PROXY));
     }
+
+    /**
+     * So das war alles was ich in den ca 2h geschaft hab. Villeicht sieht man sich ja nächstes Jahr wieder.
+     * Mit freundlichen Grüßen
+     * Doctorintro
+     */
 }
