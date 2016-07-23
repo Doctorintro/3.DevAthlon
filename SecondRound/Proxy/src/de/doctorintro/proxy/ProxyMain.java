@@ -1,5 +1,6 @@
 package de.doctorintro.proxy;
 
+import de.doctorintro.packets.ClientRegisterPacket;
 import de.doctorintro.packets.utils.Client;
 import net.md_5.bungee.api.plugin.Plugin;
 
@@ -14,5 +15,6 @@ public class ProxyMain extends Plugin {
     public void onEnable() {
         client = new Client("localhost", 12546, new ProxyPacketHandler());
         client.run();
+        client.send(new ClientRegisterPacket(ClientRegisterPacket.Type.PROXY));
     }
 }
