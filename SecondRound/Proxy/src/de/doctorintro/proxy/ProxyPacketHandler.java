@@ -1,7 +1,7 @@
 package de.doctorintro.proxy;
 
 import de.doctorintro.codec.Packet;
-import de.doctorintro.packets.utils.PacketHandler;
+import de.doctorintro.utils.PacketHandler;
 import io.netty.channel.ChannelHandlerContext;
 
 /**

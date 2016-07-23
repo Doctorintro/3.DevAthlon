@@ -18,4 +18,16 @@ public class ManagerMain {
         server.run();
     }
 
+
+    public static Channel getProxy() {
+        return proxy;
+    }
+
+    public static void setProxy(Channel proxy) {
+        ManagerMain.proxy = proxy;
+    }
+
+    public static Server getServer() {
+        return server;
+    }
 }

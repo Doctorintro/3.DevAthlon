@@ -1,7 +1,7 @@
 package de.doctorintro.manager.netty;
 
-import de.doctorintro.packets.utils.PacketDecoder;
-import de.doctorintro.packets.utils.PacketEncoder;
+import de.doctorintro.utils.PacketDecoder;
+import de.doctorintro.utils.PacketEncoder;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
