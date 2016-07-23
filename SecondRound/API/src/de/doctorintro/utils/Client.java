@@ -1,4 +1,4 @@
-package de.doctorintro.packets.utils;
+package de.doctorintro.utils;
 
 import de.doctorintro.codec.Packet;
 import io.netty.bootstrap.Bootstrap;
